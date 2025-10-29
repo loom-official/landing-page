@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOOM | Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #b7c8d5; 
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      background-color: #030101;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      color: #e1e1e1;
+    }
+
+    header img {
+      height: 30px;
+      width: 30px;
+    }
+
+    .search-icon {
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* SEARCH BAR */
+    .search-bar {
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      width: 80%;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 10px;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .search-dropdown {
+      margin-top: 10px;
+    }
+
+    .search-dropdown a {
+      display: block;
+      padding: 6px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #eee;
+      transition: background 0.3s;
+    }
+
+    .search-dropdown a:hover {
+      background: #f0f0f0;
+    }
+
+    /* BANNER SLIDER */
+/* ADVERTISEMENT SLIDESHOW */
+.banner {
+  margin-top: 70px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0 15px;
+}
+
+.banner-slider {
+  display: flex;
+  width: 100%;
+  animation: bannerSlide 7.5s infinite ease-in-out;
+}
+
+.banner-slider a {
+  flex: 0 0 100%;
+}
+
+.banner-slider img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.banner-slider img:hover {
+  transform: scale(1.03);
+}
+
+/* Smooth slide timing (2.5s each, pause at last image) */
+@keyframes bannerSlide {
+  0% { transform: translateX(0%); }
+  33% { transform: translateX(0%); }
+
+  40% { transform: translateX(-100%); }
+  66% { transform: translateX(-100%); }
+
+  73% { transform: translateX(-200%); }
+  100% { transform: translateX(-200%); }
+}
+
+    /* SECTION HEADING */
+    .section-heading {
+      font-weight: bold;
+      font-size: 1.3em;
+      margin: 20px 15px 10px;
+    }
+
+    /* PRODUCT CARDS */
+    .product-section, .shop-section {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 0 15px 20px;
+      scroll-behavior: smooth;
+    }
+
+    .product-card, .shop-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      min-width: 180px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover, .shop-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img, .shop-card img {
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card-info {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .card-info h4 {
+      font-size: 1em;
+      margin-bottom: 5px;
+    }
+
+    .card-info p {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #d3d3d3;
+      color: #000;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #333;
+      color: white;
+    }
+
+    /* STATISTIC PART */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px 15px;
+      gap: 10px;
+    }
+
+    .stat-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 20px 15px;
+      font-size: 0.9em;
+    }
+
+    .footer-section {
+      margin-bottom: 15px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 8px;
+      font-size: 1em;
+    }
+
+    .footer-section a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .social-icons i {
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .social-icons i:hover {
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #222;
+      padding-top: 10px;
+      font-size: 0.8em;
+      color: #aaa;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 200;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+  <script>
+    function toggleSearch() {
+      const bar = document.querySelector('.search-bar');
+      bar.style.display = (bar.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="logo.png" alt="LOOM Logo">
+    <h1>L O O M</h1>
+    <i class="fa fa-search search-icon" onclick="toggleSearch()"></i>
+    <div class="search-bar">
+      <input type="text" placeholder="Search pages...">
+      <div class="search-dropdown">
+        <a href="index.html">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Lookbook</a>
+        <a href="#">Track Order</a>
+        <a href="#">FAQs</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BANNER -->
+<section class="banner">
+  <div class="banner-slider">
+    <a href="#">
+      <img src="https://img.freepik.com/premium-psd/big-sale-modern-banner-promotional-template_501916-457.jpg" alt="Advertisement 1">
+    </a>
+    <a href="#">
+      <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/big-sale-banner-design-template-69fd62ea9ecc86cf15cc8e8e6dce7a1c_screen.jpg?ts=1656924683" alt="Advertisement 2">
+    </a>
+    <a href="#">
+      <img src="https://marketplace.canva.com/EAE6GJRFBO8/2/0/1600w/canva-red-and-white-modern-online-sale-and-discount-banner-EQntJWpYr4w.jpg" alt="Advertisement 3">
+    </a>
+  </div>
+</section>
+
+  <!-- PRODUCTS -->
+  <h3 class="section-heading">Popular Products</h3>
+  <section class="product-section">
+    <div class="product-card">
+      <img src="product1.jpg" alt="">
+      <div class="card-info">
+        <h4>Classic Hoodie</h4>
+        <p>৳ 1200</p>
+        <a href="#" class="btn">See Details</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="product2.jpg" alt="">
+      <div class="card-info">
+        <h4>Urban T-Shirt</h4>
+        <p>৳ 800</p>
+        <a href="#" class="btn">See Details</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="product3.jpg" alt="">
+      <div class="card-info">
+        <h4>Drop Shoulder</h4>
+        <p>৳ 950</p>
+        <a href="#" class="btn">See Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATISTICS -->
+  <section class="stats">
+    <div class="stat-card">
+      Total Orders<br><span>5,230+</span>
+    </div>
+    <div class="stat-card">
+      Deliveries<br><span>4,900+</span>
+    </div>
+  </section>
+
+  <!-- SHOP NOW -->
+  <h3 class="section-heading">Shop Now</h3>
+  <section class="shop-section">
+    <div class="shop-card">
+      <img src="summer.jpg" alt="">
+      <div class="card-info">
+        <h4>Summer Collection</h4>
+        <a href="#" class="btn">Explore</a>
+      </div>
+    </div>
+    <div class="shop-card">
+      <img src="winter.jpg" alt="">
+      <div class="card-info">
+        <h4>Winter Collection</h4>
+        <a href="#" class="btn">Explore</a>
+      </div>
+    </div>
+    <div class="shop-card">
+      <img src="sports.jpg" alt="">
+      <div class="card-info">
+        <h4>Sports Wear</h4>
+        <a href="#" class="btn">Explore</a>
+      </div>
+    </div>
+    <div class="shop-card">
+      <img src="islamic.jpg" alt="">
+      <div class="card-info">
+        <h4>Islamic Collection</h4>
+        <a href="#" class="btn">Explore</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-section">
+      <h4>Quick Jump</h4>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Lookbook</a>
+      <a href="#">Track Order</a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Help</h4>
+      <a href="#">FAQs</a>
+    </div>
+
+    <div class="footer-section social-icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-x-twitter"></i>
+      <i class="fab fa-whatsapp"></i>
+      <i class="fa fa-phone"></i>
+      <i class="fa fa-envelope"></i>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 LOOM. All Rights Reserved.<br>
+      <a href="#" style="color:#aaa; text-decoration:none;">Privacy Policy</a> |
+      <a href="#" style="color:#aaa; text-decoration:none;">Terms of Service</a>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <div class="whatsapp-btn">
+    <i class="fab fa-whatsapp" style="color:white; font-size:28px;"></i>
+  </div>
+
+</body>
+</html>
