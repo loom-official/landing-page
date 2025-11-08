@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ME Theme Hoodie</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* HEADER */
+    header {
+      width: 100%;
+      background-color: #07363c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+
+    header h1 {
+      color: #e1e1e1;
+    }
+
+
+    header img {
+      height: 16%;
+      width: 16%;
+    }
+
+
+    .search-icon {
+      margin-right: 30px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+
+    /* SEARCH BAR */
+    .search-bar {
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      width: 80%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 10px;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #070202;
+      border-radius: 6px;
+    }
+
+
+    .search-dropdown {
+      margin-top: 10px;
+    }
+
+
+    .search-dropdown a {
+      display: block;
+      padding: 6px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #948989;
+      transition: background 0.3s;
+    }
+
+
+    .search-dropdown a:hover {
+      background: #5b46ff;
+    }
+
+
+  main {
+    margin-top: 80px;
+    padding: 15px;
+  }
+
+
+  /* PRODUCT SECTION */
+  .product-container {
+    background: #07363c;
+    display: flex;
+    flex-direction: column;
+    background-color: #07363c;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin-bottom: 30px;
+  }
+
+
+  .product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    border-radius: 0;
+  }
+
+
+  .product-image img.active {
+    display: block;
+  }
+
+
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 1.5em;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+
+  .prev { left: 10px; }
+  .next { right: 10px; }
+
+
+  .product-details {
+    padding: 20px;
+    color: white;
+  }
+
+
+  .product-details h1 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+
+  .detail-item {
+    margin-bottom: 8px;
+    color: white;
+  }
+
+  .color-boxes {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+  }
+
+  .color-box {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+  }
+
+
+   .order-btn {
+      background-color: #018f16; /* Bright green */
+      color: white;
+      text-decoration: none;
+      border: none;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      display: block;
+      text-align: center;
+      width: fit-content;
+      margin: 15px auto 0 auto; /* Centers the button */
+      box-shadow: 0 4px 10px rgba(0, 200, 83, 0.3);
+    }
+
+
+    .order-btn:hover {
+      background-color: #05fa29;
+      box-shadow: 0 0 20px 5px rgba(0, 255, 100, 0.6);
+      transform: scale(1.05);
+    }
+
+
+
+
+  /* PRODUCT CARDS */
+    .product-section {
+      display: flex;
+      overflow-x: auto;
+      gap: 25px;
+      padding: 0 15px 20px;
+      scroll-behavior: smooth;
+    }
+
+
+    .product-card {
+      background: #07363c;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgb(10, 2, 2);
+      min-width: 180px;
+      transition: transform 0.3s ease;
+    }
+
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+      height: 150px;
+      object-fit: cover;
+    }
+
+
+    .card-info {
+      padding: 10px;
+      text-align: center;
+    }
+
+
+    .card-info h3 {
+      font-size: 1em;
+      color: #fefcfc;
+      margin-bottom: 5px;
+    }
+
+
+    .card-info p {
+      font-size: 0.9em;
+      color: #fefcfc;
+      margin-bottom: 10px;
+    }
+
+
+    .btn {
+      display: inline-block;
+      background-color: #f5f5f7;
+      color: #0f0a0a;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+
+    .btn:hover {
+      background-color: #e3c09d;
+      color: rgb(7, 2, 2);
+    }
+
+
+  /* FOOTER */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 20px 15px;
+      font-size: 0.9em;
+    }
+
+
+    .footer-section {
+      margin-bottom: 15px;
+    }
+
+
+    .footer-section h4 {
+      margin-bottom: 8px;
+      font-size: 1em;
+    }
+
+
+    .footer-section a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+
+    .social-icons i {
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+
+    .social-icons i:hover {
+      transform: scale(1.2);
+    }
+
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #222;
+      padding-top: 10px;
+      font-size: 0.8em;
+      color: #aaa;
+    }
+
+
+  /* PC VIEW */
+  @media (min-width: 768px) {
+    .product-container {
+      width: 100%;
+      margin-top: 20px;
+      flex-direction: row;
+      aspect-ratio: 16 / 9;
+      height: 75vh;
+      background: linear-gradient(to right, #07363c, #020137);
+    }
+    .product-image {
+      width: 33%;
+      aspect-ratio: auto;
+    }
+    .product-details {
+      width: 67%;
+      font-size: 1.3rem;
+      border-bottom: 10px;
+    }
+    .related-products {
+      grid-template-columns: repeat(4, 1fr);
+    }
+     header img {
+      height: 10%;
+      width: 10%;
+    }
+    .product-details {
+      padding: 40px;
+      color: white;
+    }
+    .product-details h1 {
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+
+    .detail-item {
+      margin-bottom: 14px;
+      color: white;
+    }
+
+
+    .color-boxes {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+
+    .color-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      cursor: pointer;
+    }
+  }
+
+
+  /* FLOATING WHATSAPP BUTTON */
+
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 200;
+      transition: transform 0.3s;
+    }
+
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+<script>
+    function toggleSearch() {
+      const bar = document.querySelector('.search-bar');
+      bar.style.display = (bar.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+
+<!-- HEADER -->
+  <header>
+    <img src="https://github.com/loom-official/landing-page/blob/main/Beige%20Elegant%20Personal%20Business%20Card%20(1).png?raw=true" alt="LOOM Logo">
+    <i class="fa fa-search search-icon" onclick="toggleSearch()"></i>
+    <div class="search-bar">
+      <input type="text" placeholder="Search pages...">
+      <div class="search-dropdown">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="track.html">Track Order</a>
+        <a href="faqs.html">FAQs</a>
+      </div>
+    </div>
+  </header>
+
+
+<main>
+  <section class="product-container">
+  <!-- IMAGE SLIDES -->
+  <div class="product-image">
+    <button class="prev">&#10094;</button>
+    <img src="https://github.com/loom-official/landing-page/blob/main/6ME01_white.png?raw=true" class="active" alt="Product Image 1">
+    <img src="https://github.com/loom-official/landing-page/blob/main/6ME01_pink.png?raw=true" alt="Product Image 2">
+    <img src="https://github.com/loom-official/landing-page/blob/main/6ME01_black.png?raw=true" alt="Product Image 3">
+    <img src="https://github.com/loom-official/landing-page/blob/main/6ME01_grey.png?raw=true" alt="Product Image 4">
+    <img src="https://github.com/loom-official/landing-page/blob/main/6ME01_skyblue.png?raw=true" alt="Product Image 5">
+    <button class="next">&#10095;</button>
+  </div>
+
+  <!-- PRODUCT DETAILS -->
+  <div class="product-details">
+    <h1>Mechanical Theme Hoodie</h1>
+    <div class="detail-item">Product Code: 6ME01</div>
+    <div class="detail-item">Gender: Unisex</div>
+    <div class="detail-item">
+      Colour Variety:
+      <div class="color-boxes">
+        <div class="color-box" style="background-color: #ffffff;" data-index="0"></div>
+        <div class="color-box" style="background-color: pink;" data-index="1"></div>
+        <div class="color-box" style="background-color: #000000;" data-index="2"></div>
+        <div class="color-box" style="background-color: lightgrey;" data-index="3"></div>
+        <div class="color-box" style="background-color: skyblue;" data-index="4"></div>
+      </div>
+    </div>
+    <div class="detail-item">Fabric Type: Cotton Blend</div>
+    <div class="detail-item">Sizes: S, M, L, XL, XXL</div>
+    <div class="detail-item"><strong>Price: 799/- BDT only</strong></div>
+    <div class="detail-item">Stock: Available</div>
+    <a href="6ME01order.html" class="order-btn">Order Now</a>
+  </div>
+</section>
+
+
+
+  <!-- RELATED PRODUCTS -->
+  <h1 class="section-heading">||| Related Products</h1><br>
+  <section class="product-section">
+    <div class="product-card">
+      <img src="https://github.com/loom-official/landing-page/blob/main/LOOM%20Poster%2001%20(4)%20(1).png?raw=true" alt="">
+      <div class="card-info">
+        <h3>CSE Theme Hoodie</h3>
+        <p>P.C. 6CSE01</p>
+        <p>৳ 799</p>
+        <a href="6CSE01.html" class="btn">See Details</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://github.com/loom-official/landing-page/blob/main/LOOM%20Poster%2001%20(4)%20(1).png?raw=true" alt="">
+      <div class="card-info">
+        <h3>EEE Theme Hoodie</h3>
+        <p>P.C. 6EEE01</p>
+        <p>৳ 799</p>
+        <a href="6EEE01.html" class="btn">See Details</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://github.com/loom-official/landing-page/blob/main/LOOM%20Poster%2001%20(4)%20(1).png?raw=true" alt="">
+      <div class="card-info">
+        <h3>Textile Theme Hoodie</h3>
+        <p>P.C. 6TE01</p>
+        <p>৳ 799</p>
+        <a href="6TE01.html" class="btn">See Details</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://github.com/loom-official/landing-page/blob/main/LOOM%20Poster%2001%20(4)%20(1).png?raw=true" alt="">
+      <div class="card-info">
+        <h3>CE Theme Hoodie</h3>
+        <p>P.C. 6CE01</p>
+        <p>৳ 799</p>
+        <a href="6CE01.html" class="btn">See Details</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://github.com/loom-official/landing-page/blob/main/LOOM%20Poster%2001%20(4)%20(1).png?raw=true" alt="">
+      <div class="card-info">
+        <h3>IPE Theme Hoodie</h3>
+        <p>P.C. 6TE01</p>
+        <p>৳ 799</p>
+        <a href="6IPE01.html" class="btn">See Details</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+  <footer>
+    <div class="footer-section">
+      <h4>Quick Jump</h4>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="track.html">Track Order</a>
+    </div>
+
+
+    <div class="footer-section">
+      <h4>Help</h4>
+      <a href="faqs.html">FAQs</a>
+    </div>
+
+
+    <div class="footer-section social-icons">
+      <a href="https://www.facebook.com/loombdonline" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/loom.bangladesh" target="_blank"><i class="fab fa-instagram"></i></a>
+      <i class="fab fa-x-twitter"></i>
+      <a href="https://wa.me/8801606148203?text=Hello!%20I%20have%20something%20to%20ask." target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="tel:+8801606148203" target="_blank"><i class="fa fa-phone"></i></a>
+      <a href="mailto:headoffice.loom@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+    </div>
+
+
+    <div class="footer-bottom">
+      © 2025 LOOM. All Rights Reserved.<br>
+      <a href="privacy.html" style="color:#aaa; text-decoration:none;">Privacy Policy</a> |
+      <a href="trems.html" style="color:#aaa; text-decoration:none;">Terms of Service</a>
+      <i>This site is designed by <a href="">Kiram Ahmed Khan</a>.</i>
+    </div>
+  </footer>
+
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/8801606148203?text=Hello!%20I%20have%20something%20to%20ask."
+   target="_blank"
+   class="whatsapp-btn">
+  <i class="fab fa-whatsapp" style="color:white; font-size:28px;"></i>
+</a>
+
+
+<script>
+  // Image Slideshow
+  const slides = document.querySelectorAll('.product-image img');
+  let currentSlide = 0;
+
+
+  document.querySelector('.next').addEventListener('click', () => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  });
+
+
+  document.querySelector('.prev').addEventListener('click', () => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+  });
+
+
+  // Auto Slide (optional)
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 3000);
+
+
+  // Color Switch (for image change)
+  document.querySelectorAll('.color-box').forEach(box => {
+    box.addEventListener('click', () => {
+      const index = box.getAttribute('data-index');
+      slides.forEach(img => img.classList.remove('active'));
+      slides[index].classList.add('active');
+    });
+  });
+</script>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order IPE Theme Hoodie</title>
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      align-items: flex-start;
+      background-color: #f7f8f9; 
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      background-color: #07363c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    header img {
+      height: 16%;
+      width: 16%;
+    }
+
+    .search-icon {
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* SEARCH BAR */
+    .search-bar {
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      width: 80%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 10px;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #070202;
+      border-radius: 6px;
+    }
+
+    .search-dropdown {
+      margin-top: 10px;
+    }
+
+    .search-dropdown a {
+      display: block;
+      padding: 6px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #948989;
+      transition: background 0.3s;
+    }
+
+    .search-dropdown a:hover {
+      background: #5b46ff;
+    }
+
+        form {
+            max-width: 500px;
+            margin-top: 80px;
+            margin-bottom: 25px;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #f0d4b9; 
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #07363c;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .fixed-field {
+            background-color: #e9e9e9;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+    /* FOOTER */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 20px 15px;
+      font-size: 0.9em;
+    }
+
+    .footer-section {
+      margin-bottom: 15px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 8px;
+      font-size: 1em;
+    }
+
+    .footer-section a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .social-icons i {
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .social-icons i:hover {
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #222;
+      padding-top: 10px;
+      font-size: 0.8em;
+      color: #aaa;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 200;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media screen and (min-width: 768px) {
+      form {
+            max-width: 1600px;
+            margin-top: 130px;
+            margin-bottom: 30px;
+            margin-left: 45px;
+            margin-right: 45px;
+        }
+        header img {
+            height: 10%;
+            width: 10%;
+        }
+    }
+    </style>
+    <script>
+        function updateAmount() {
+            const quantity = document.getElementById("quantity").value;
+            const price = 799; // Fixed price per item (change this as needed)
+            const totalAmount = quantity * price;
+            document.getElementById("payable-amount").textContent = `BDT ${totalAmount}`;
+        }
+    function toggleSearch() {
+      const bar = document.querySelector('.search-bar');
+      bar.style.display = (bar.style.display === 'block') ? 'none' : 'block';
+    }
+    function showTransectionFields() {
+    const occupation = document.getElementById('occupation').value;
+    const transectionFields = document.getElementById('transectionFields');
+    const paymentMessage = document.getElementById('paymentMessage');
+
+    if (occupation === 'Yes') {
+      transectionFields.style.display = 'block';
+      paymentMessage.style.display = 'none';
+    } 
+    else if (occupation === 'No') {
+      transectionFields.style.display = 'none';
+      paymentMessage.style.display = 'block';
+    } 
+    else {
+      transectionFields.style.display = 'none';
+      paymentMessage.style.display = 'none';
+    }
+  }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+    <img src="https://github.com/loom-official/landing-page/blob/main/Beige%20Elegant%20Personal%20Business%20Card%20(1).png?raw=true" alt="LOOM Logo">
+    <i class="fa fa-search search-icon" onclick="toggleSearch()"></i>
+    <div class="search-bar">
+      <input type="text" placeholder="Search pages...">
+      <div class="search-dropdown">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="track.html">Track Order</a>
+        <a href="faqs.html">FAQs</a>
+      </div>
+    </div>
+    </header>
+
+    <form action="https://formspree.io/f/mdkployk"
+  method="POST">
+        <!-- Fixed Product -->
+        <label for="product-name">Product:</label>
+        <div class="fixed-field">
+            <span id="product-name"><h2>IPE Theme Hoodie</h2><br>P.C. 6IPE01</span>
+        </div>
+
+        <!-- Payable Amount -->
+            <label for="payable-amount">Payable Amount:</label>
+        <div class="fixed-field">
+            <span id="payable-amount">BDT 799/-</span> <!-- Default amount (1 item) -->
+        </div>
+
+        <!-- Quantity -->
+        <label for="quantity">Quantity:</label>
+        <select id="quantity" name="quantity" onchange="updateAmount()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <!-- Size -->
+        <label>Size:</label>
+        <div>
+            <input type="checkbox" id="size-l" name="size" value="L">
+            <label for="size-l">M</label>
+            <input type="checkbox" id="size-m" name="size" value="M">
+            <label for="size-m">L</label>
+            <input type="checkbox" id="size-xl" name="size" value="XL">
+            <label for="size-xl">XL</label>
+            <input type="checkbox" id="size-xxl" name="size" value="XXL">
+            <label for="size-xxl">XXL</label>
+        </div>
+
+        <!-- Color -->
+        <label for="Color">Color: </label>
+        <select id="quantity" name="quantity" onchange="updateAmount()">
+            <option value="1">Silk Black</option>
+            <option value="2">Off White</option>
+            <option value="3">Baby Pink</option>
+            <option value="4">Light Grey</option>
+            <option value="5">Sky Blue</option>
+        </select>
+
+        <!-- Customer Name -->
+        <label for="customer-name">Customer Name:</label>
+        <input type="text" id="customer-name" name="customer-name" required>
+
+        <!-- Customer Email -->
+        <label for="customer-email">Customer Email:</label>
+        <input type="email" id="customer-email" name="customer-email" required>
+
+        <!-- Customer Phone Number -->
+        <label for="customer-phone">Customer Phone Number:</label>
+        <input type="tel" id="customer-phone" name="customer-phone" required>
+
+        <!-- Shipment Address -->
+        <label for="shipment-address">Shipment Address:</label>
+        <textarea id="shipment-address" name="shipment-address" rows="4" required></textarea>
+
+        <!-- Payment Details -->
+        <label for="occupation">Have you done the pre-order payment?</label>
+        <select id="occupation" name="occupation" onchange="showTransectionFields()" required>
+            <option value="">-- Select One --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <!-- Transaction Fields -->
+        <div id="transectionFields" style="display: none; margin-top: 10px;">
+            <label for="MobileBankingMethod">Select mobile banking method</label>
+            <select id="MobileBankingMethod" name="mobile-banking-method">
+                <option value="">-- Select Method --</option>
+                <option value="Bkash">Bkash</option>
+                <option value="Nagad">Nagad</option>
+            </select>
+
+            <label for="transection">Transaction ID</label>
+            <input type="text" id="transection" name="transection-id" placeholder="Enter transaction ID">
+        </div>
+
+        <!-- Payment Message -->
+        <p id="paymentMessage" style="display: none; color: red; margin-top: 10px;">
+        You must pay <strong>100/- BDT</strong> in advance as a pre-order payment to the following number to confirm your order. <br>
+        <strong>Our Bkash/Nagad:</strong> +880 1629 054335 (do 'send money')
+        </p>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Place Order">
+    </form>
+
+    <!-- FOOTER -->
+  <footer>
+    <div class="footer-section">
+      <h4>Quick Jump</h4>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="track.html">Track Order</a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Help</h4>
+      <a href="faqs.html">FAQs</a>
+    </div>
+
+    <div class="footer-section social-icons">
+      <a href="https://www.facebook.com/loombdonline" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/loom.bangladesh" target="_blank"><i class="fab fa-instagram"></i></a>
+      <i class="fab fa-x-twitter"></i>
+      <a href="https://wa.me/8801606148203?text=Hello!%20I%20have%20something%20to%20ask." target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="tel:+8801606148203" target="_blank"><i class="fa fa-phone"></i></a>
+      <a href="mailto:headoffice.loom@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+    </div>
+
+
+    <div class="footer-bottom">
+      © 2025 LOOM. All Rights Reserved.<br>
+      <a href="privacy.html" style="color:#aaa; text-decoration:none;">Privacy Policy</a> |
+      <a href="trems.html" style="color:#aaa; text-decoration:none;">Terms of Service</a>
+      <i>This site is designed by <a href="">Kiram Ahmed Khan</a>.</i>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/8801606148203?text=Hello!%20I%20have%20something%20to%20ask." 
+   target="_blank" 
+   class="whatsapp-btn">
+  <i class="fab fa-whatsapp" style="color:white; font-size:28px;"></i>
+</a>
+
+</body>
+</html>
