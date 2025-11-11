@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Naruto's Heat</title>
+    <title>LOOM | Track Order</title>
     <style>
         * {
       margin: 0;
@@ -83,27 +83,28 @@
     }
 
 .track-order-section {
+  margin-top: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
-  background: #f8f8f8;
+  background: #fff;
 }
 
 .track-order-card {
-  background: #fff;
+  background: linear-gradient(to bottom, #dec5c5, #d5bda4);
   padding: 40px;
   width: 90%;
   max-width: 500px;
   border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 20px 20px #07363c;
   text-align: center;
 }
 
 .track-order-card h1 {
   margin-bottom: 30px;
   font-size: 26px;
-  color: #333;
+  color: #07363c;
 }
 
 /* Floating label input */
@@ -115,7 +116,7 @@
 .input-container input {
   width: 100%;
   padding: 12px;
-  border: 2px solid #ccc;
+  border: 2px solid #07363c;
   border-radius: 8px;
   outline: none;
   font-size: 16px;
@@ -123,14 +124,14 @@
 }
 
 .input-container input:focus {
-  border-color: #28a745;
+  border-color: yellow;
 }
 
 .input-container label {
   position: absolute;
   top: 12px;
   left: 15px;
-  color: #888;
+  color: #fff;
   font-size: 16px;
   pointer-events: none;
   transition: 0.3s ease all;
@@ -141,26 +142,29 @@
   top: -10px;
   left: 10px;
   font-size: 13px;
-  background: #fff;
+  background: linear-gradient(to bottom, #dec5c5, #ffffff)
+  ;
   padding: 0 5px;
-  color: #28a745;
+  color: #07363c;
 }
 
 /* Button styling */
 .track-order-card button {
-  background: #28a745;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
+  background-color: skyblue;
+  color: #07363c;
+  font-weight: bold;
+  font-size: medium;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  border-color: #07363c;
 }
 
 .track-order-card button:hover {
-  background: #34d058;
-}
+  background-color: #00e84d;
+  transform: scale(1.05);  /* Slight zoom */
+  color: white;}
 
 /* Result box */
 .order-result {
@@ -298,7 +302,7 @@
         <input type="text" id="orderNumber" required />
         <label for="orderNumber">Enter order number</label>
       </div>
-      <button type="submit">Track Order</button>
+      <button type="submit">Go!</button>
     </form>
 
     <div id="orderResult" class="order-result">
