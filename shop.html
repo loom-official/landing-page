@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOOM | Caps</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Delete row number 21 to 152. Must add the original body from index.html */
+   /* Delete row number 21 to 152. Must add the original body from index.html */
+      /* Delete row number 21 to 152. Must add the original body from index.html */
+         /* Delete row number 21 to 152. Must add the original body from index.html */
+            /* Delete row number 21 to 152. Must add the original body from index.html */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gen-loader-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #fff;
+  background: transparent;
+  user-select: none;
+  margin: auto;
+}
+
+.gen-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: transparent;
+  animation: gen-rotate 2s linear infinite;
+  z-index: 0;
+}
+
+@keyframes gen-rotate {
+  0% {
+      transform: rotate(90deg);
+      box-shadow:
+          0 10px 20px 0 #fff inset,
+          0 20px 30px 0 #7a5cff inset,
+          0 60px 60px 0 #3d1ee0 inset;
+  }
+
+  50% {
+      transform: rotate(270deg);
+      box-shadow:
+          0 10px 20px 0 #fff inset,
+          0 20px 15px 0 #e20a5c inset,
+          0 50px 60px 0 #201160 inset;
+  } 
+  100% {
+      transform: rotate(450deg);
+      box-shadow:
+          0 10px 20px 0 #fff inset,
+          0 20px 30px 0 #7a5cff inset,
+          0 60px 60px 0 #3d1ee0 inset;
+  }
+}
+
+.gen-letter {
+  display: inline-block;
+  opacity: 0.4;
+  transform: translateY(0);
+  animation: gen-text 2s infinite;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+}
+
+.gen-letter:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.gen-letter:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.gen-letter:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.gen-letter:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.gen-letter:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.gen-letter:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.gen-letter:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.gen-letter:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+.gen-letter:nth-child(9) {
+  animation-delay: 0.8s;
+}
+
+.gen-letter:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes gen-text {
+
+  0%,
+  100% {
+      opacity: 0.4;
+      transform: translateY(0);
+  }  
+  20% {
+      opacity: 1;
+      transform: scale(1.15);
+  }  
+  40% {
+      opacity: 0.7;
+      transform: translateY(0);
+  }
+}
+
+    header {
+      width: 100%;
+      background-color: #07363c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    header img {
+      height: 16%;
+      width: 16%;
+    }
+
+    .search-icon {
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* SEARCH BAR */
+    .search-bar {
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      width: 80%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 10px;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #070202;
+      border-radius: 6px;
+    }
+
+    .search-dropdown {
+      margin-top: 10px;
+    }
+
+    .search-dropdown a {
+      display: block;
+      padding: 6px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #948989;
+      transition: background 0.3s;
+    }
+
+    .search-dropdown a:hover {
+      background: #5b46ff;
+    }
+
+    @media screen and (min-width: 768px) {
+    header img {
+      height: 18%;
+      width: 18%;
+      }
+    }    
+
+    /* FOOTER */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 20px 15px;
+      font-size: 0.9em;
+    }
+
+    .footer-section {
+      margin-bottom: 15px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 8px;
+      font-size: 1em;
+    }
+
+    .footer-section a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .social-icons i {
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .social-icons i:hover {
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #222;
+      padding-top: 10px;
+      font-size: 0.8em;
+      color: #aaa;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 200;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media screen and (min-width: 768px) {
+      form {
+            max-width: 1600px;
+            margin-top: 130px;
+            margin-bottom: 30px;
+            margin-left: 45px;
+            margin-right: 45px;
+        }
+        header img {
+            height: 10%;
+            width: 10%;
+        }
+    }
+  </style>
+  <script>
+    function toggleSearch() {
+      const bar = document.querySelector('.search-bar');
+      bar.style.display = (bar.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="https://github.com/loom-official/landing-page/blob/main/Beige%20Elegant%20Personal%20Business%20Card%20(1).png?raw=true" alt="LOOM Logo">
+    <i class="fa fa-search search-icon" onclick="toggleSearch()"></i>
+    <div class="search-bar">
+      <input type="text" placeholder="Search pages...">
+      <div class="search-dropdown">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="track.html">Track Order</a>
+        <a href="faqs.html">FAQs</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="gen-loader-box">
+      <span class="gen-letter">G</span>
+      <span class="gen-letter">e</span>
+      <span class="gen-letter">n</span>
+      <span class="gen-letter">e</span>
+      <span class="gen-letter">r</span>
+      <span class="gen-letter">a</span>
+      <span class="gen-letter">t</span>
+      <span class="gen-letter">i</span>
+      <span class="gen-letter">n</span>
+      <span class="gen-letter">g</span>  
+      <div class="gen-circle"></div>
+  </div><br>
+
+
+<!-- FOOTER -->
+  <footer>
+    <div class="footer-section">
+      <h4>Quick Jump</h4>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop Now</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="track.html">Track Order</a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Help</h4>
+      <a href="faqs.html">FAQs</a>
+    </div>
+
+    <div class="footer-section social-icons">
+      <a href="https://www.facebook.com/loombdonline" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/loom.bangladesh" target="_blank"><i class="fab fa-instagram"></i></a>
+      <i class="fab fa-x-twitter"></i>
+      <a href="https://wa.me/8801606148203?text=Hello!%20I%20have%20something%20to%20ask." target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="tel:+8801606148203" target="_blank"><i class="fa fa-phone"></i></a>
+      <a href="mailto:headoffice.loom@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+    </div>
+
+
+    <div class="footer-bottom">
+      © 2025 LOOM. All Rights Reserved.<br>
+      <a href="privacy.html" style="color:#aaa; text-decoration:none;">Privacy Policy</a> |
+      <a href="trems.html" style="color:#aaa; text-decoration:none;">Terms of Service</a><br>
+      <i>Designed by <a href="">Kiram Ahmed Khan</a>.</i>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/8801606148203?text=Hello!%20I%20have%20something%20to%20ask." 
+   target="_blank" 
+   class="whatsapp-btn">
+  <i class="fab fa-whatsapp" style="color:white; font-size:28px;"></i>
+</a>
+
+</body>
+</html>
