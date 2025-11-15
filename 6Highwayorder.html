@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order BUBU's Hoodie</title>
+    <title>Order Highway Hoodie</title>
     <style>
         * {
       margin: 0;
@@ -277,7 +277,7 @@
         <!-- Fixed Product -->
         <label for="product-name">Product:</label>
         <div class="fixed-field">
-            <span id="product-name"><h2>BUBU's Hoodie</h2><br>P.C. 6DB01</span>
+            <span id="product-name"><h2>Highway Hoodie</h2><br>P.C. 6Highway</span>
         </div>
 
         <!-- Payable Amount -->
@@ -312,9 +312,12 @@
         <!-- Color -->
         <label for="Color">Color: </label>
         <select id="quantity" name="quantity" onchange="updateAmount()">
-            <option value="3">Baby Pink</option>
+            <option value="1">Black</option>
+            <option value="2">White</option>
+            <option value="3">Olive Green</option>
+            <option value="4">Pink</option>
             <option value="5">Sky Blue</option>
-            <option value="5">Yellow</option>
+
         </select>
 
         <!-- Customer Name -->
@@ -340,11 +343,11 @@
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
-
+        
         <!-- Transaction Fields -->
         <div id="transectionFields" style="display: none; margin-top: 10px;">
             <label for="MobileBankingMethod">Select mobile banking method</label>
-            <select id="MobileBankingMethod" name="mobile-banking-method">
+            <select id="MobileBankingMethod" name="mobile-banking-method" required>
                 <option value="">-- Select Method --</option>
                 <option value="Bkash">Bkash</option>
                 <option value="Nagad">Nagad</option>
@@ -391,7 +394,6 @@
       <a href="tel:+8801606148203" target="_blank"><i class="fa fa-phone"></i></a>
       <a href="mailto:headoffice.loom@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
     </div>
-
 
     <div class="footer-bottom">
       © 2025 LOOM. All Rights Reserved.<br>
